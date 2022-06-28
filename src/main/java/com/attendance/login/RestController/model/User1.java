@@ -18,7 +18,7 @@ public class User1 {
     private String name;
     private String email;
     public String para;
-   // private String phone;
+    private String phone;
     private LocalDate date=LocalDate.now();
-    public LocalTime time=LocalTime.now();
+    public String time;
 }
