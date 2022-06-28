@@ -17,6 +17,9 @@ public interface UserRepository1 extends JpaRepository<User1,Integer> {
    List<User1> getByDate(LocalDate date);
 
     List<User1> findByName(String name);
+    
+    
+    Boolean existsByPara(String para);
 
     //    @Query(nativeQuery = true, value="select *from asd where date='2022-06-08'")
 //    List<User> getData(@Param("date")LocalDate date);
