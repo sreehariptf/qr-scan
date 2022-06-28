@@ -42,17 +42,36 @@ public class Controller {
         return verify;
     }
 
-    @PostMapping("/save")
+     @PostMapping("/save")
     public ResponseEntity AddUser( @RequestBody User1 user1) {
 
         System.out.println(i);
         if (i.equals(user1.para)) {
-            userRepository1.save(user1);
-            return new ResponseEntity<>(HttpStatus.OK);
+
+            if(userRepository1.existsByPara(user1.para))
+            {
+                
+                
+                return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);}
+            else {
+                userRepository1.save(user1);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+//     @PostMapping("/save")
+//     public ResponseEntity AddUser( @RequestBody User1 user1) {
+
+//         System.out.println(i);
+//         if (i.equals(user1.para)) {
+//             userRepository1.save(user1);
+//             return new ResponseEntity<>(HttpStatus.OK);
+//         } else {
+//             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//         }
+//     }
 
     @GetMapping("/get-user-details")
     public Iterable<User1> take( @RequestParam String email) {
