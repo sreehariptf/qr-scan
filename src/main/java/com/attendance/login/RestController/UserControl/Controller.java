@@ -35,6 +35,8 @@ public class Controller {
 
     @Autowired
     public DetailsServices detailService;
+   
+    @CrossOrigin
     @PostMapping("/qr-generator")
             public String Test() {
         String verify = genarator.generateRandom(20);
