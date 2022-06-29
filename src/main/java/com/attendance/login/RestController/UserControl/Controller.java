@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/rest")
 public class Controller {
