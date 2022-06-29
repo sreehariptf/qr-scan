@@ -17,7 +17,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.attendance.login.security.jwt.AuthTokenFilter;
 import com.attendance.login.security.services.UserDetailsServiceImpl;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
