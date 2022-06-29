@@ -82,7 +82,7 @@ public class Controller {
     }
 
     @GetMapping("/get-by-date")
-    public Iterable<User1> findByDate(@RequestParam String date) {
+    public Iterable<User1> findByDate(@RequestBody String date) {
         return userRepository1.getByDate(LocalDate.parse(date));
     }
 
