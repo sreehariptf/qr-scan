@@ -100,5 +100,10 @@ public class Controller {
     public Iterable<User1> find() {
         return userRepository1.getByDate(LocalDate.now());
     }
+    
+    @PostMapping("/recent1")
+    public Iterable<User1> find1() {
+        return userRepository1.getByDate(LocalDate.now());
+    }
 
 }
