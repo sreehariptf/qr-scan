@@ -21,4 +21,5 @@ public class User1 {
     private String phone;
     private LocalDate date=LocalDate.now();
     public String time;
+    public String month=LocalDate.now().format(DateTimeFormatter.ofPattern("YYYY-MM"));
 }
