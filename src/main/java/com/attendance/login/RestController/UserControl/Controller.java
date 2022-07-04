@@ -105,5 +105,9 @@ public class Controller {
     public Iterable<User1> find1() {
         return userRepository1.getByDate(LocalDate.now());
     }
+    
+     @GetMapping("/get-by-month")
+    public Iterable<User1> findByMonth(@RequestBody String month,String email) {
+        return userRepository1.getByMonthAndEmail(month,email);
 
 }
