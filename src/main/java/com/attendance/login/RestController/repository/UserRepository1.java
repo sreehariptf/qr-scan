@@ -18,6 +18,8 @@ public interface UserRepository1 extends JpaRepository<User1,Integer> {
 
     List<User1> findByName(String name);
     
+    Iterable<User1> deleteByDate(String date);
+    
     
     Boolean existsByPara(String para);
     
