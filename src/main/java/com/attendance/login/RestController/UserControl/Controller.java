@@ -109,8 +109,9 @@ public class Controller {
     }
     
    @GetMapping("/delete-by-time")
-public Iterable<User1> delete( @RequestParam String time) {
-return userRepository1.deleteByTime(time);
+public String delete( @RequestParam String time) {
+ userRepository1.deleteByTime(time);
+    return "deleted";
 }
     
 //      @GetMapping("/get-by-month")
