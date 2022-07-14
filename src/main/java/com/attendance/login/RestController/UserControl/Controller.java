@@ -12,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import javax.transaction.Transactional;
 
+@Transactional
 @CrossOrigin
 @RestController
 @RequestMapping("/api/rest")
@@ -105,6 +107,11 @@ public class Controller {
     public Iterable<User1> find1() {
         return userRepository1.getByDate(LocalDate.now());
     }
+    
+   @GetMapping("/delete-by-time")
+public Iterable<User1> delete( @RequestParam String date) {
+return userRepository1.deleteByDate(date);
+}
     
 //      @GetMapping("/get-by-month")
 //     public Iterable<User1> findByMonth(@RequestBody String month,String email) {
