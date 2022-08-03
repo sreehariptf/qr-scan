@@ -24,7 +24,7 @@ public class User1 {
     private String email;
     public String para;
     private String phone;
-    private String date
+    private LocalDate date
     public String time;
 
     public String month=LocalDate.now().format(DateTimeFormatter.ofPattern("YYYY-MM"));
