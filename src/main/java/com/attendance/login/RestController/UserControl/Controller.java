@@ -141,10 +141,11 @@ rsp=0;
 
 
    
-@GetMapping("/delete-by-time")
-    public Iterable<User1> delete( @RequestParam String date) {
-        return userRepository1.deleteByDate(date);
+    @GetMapping("/delete-user")
+    public Iterable<User1> deleteuser( @RequestParam String name) {
+        return userRepository1.deleteByName(name);
     }
+
 
 //       public ResponseEntity<?>waiter()
 //       {
