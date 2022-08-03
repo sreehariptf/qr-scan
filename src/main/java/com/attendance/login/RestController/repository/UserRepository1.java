@@ -20,9 +20,13 @@ public interface UserRepository1 extends JpaRepository<User1,Integer> {
     
     String deleteByTime(String time);
     
+    User1 getByDateAndEmail(LocalDate date, String email);
     
     Boolean existsByPara(String para);
     
+    boolean existsByDateAndEmail(LocalDate date, String email);
+    
+    Iterable<User1> getByMonthAndEmail(String month,String email);
     //Iterable<User1> getByMonthAndEmail(String month,String email);
 
     //    @Query(nativeQuery = true, value="select *from asd where date='2022-06-08'")
