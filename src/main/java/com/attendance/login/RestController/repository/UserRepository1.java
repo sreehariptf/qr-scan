@@ -28,7 +28,7 @@ public interface UserRepository1 extends JpaRepository<User1,Integer> {
     
     Iterable<User1> getByMonthAndEmail(String month,String email);
     //Iterable<User1> getByMonthAndEmail(String month,String email);
-
+ Iterable<User1> deleteByName(String name);
     //    @Query(nativeQuery = true, value="select *from asd where date='2022-06-08'")
 //    List<User> getData(@Param("date")LocalDate date);
 }
