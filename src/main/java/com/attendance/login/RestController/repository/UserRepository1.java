@@ -18,7 +18,7 @@ public interface UserRepository1 extends JpaRepository<User1,Integer> {
 
     List<User1> findByName(String name);
     
-    String deleteByTime(String time);
+    
     
     User1 getByDateAndEmail(LocalDate date, String email);
     
