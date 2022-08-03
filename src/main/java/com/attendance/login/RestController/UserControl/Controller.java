@@ -15,6 +15,11 @@ import java.time.LocalDate;
 import javax.transaction.Transactional;
 
 
+@Transactional
+@CrossOrigin
+@RestController
+@RequestMapping("/api/rest")
+public class Controller {
 
     @Autowired
     private DetailRepository detailRepository;
@@ -104,63 +109,6 @@ rsp=0;
     }
 
 
-
-
-
-
-// @Transactional
-// @CrossOrigin
-// @RestController
-// @RequestMapping("/api/rest")
-// public class Controller {
-
-//     @Autowired
-//     private DetailRepository detailRepository;
-
-//     @Autowired
-//     public UserRepository1 userRepository1;
-
-//     @Autowired
-//     public Genarator genarator;
-
-//     public String i;
-
-//    // public String verify = genarator.generateRandom(10);
-
-
-
-//     @Autowired
-//     public DetailsServices detailService;
-   
-//     @CrossOrigin
-//     @PostMapping("/qr-generator")
-//             public String Test() {
-//         String verify = genarator.generateRandom(20);
-//         System.out.println(verify);
-//         i=verify;
-//         return verify;
-//     }
-
-//      @PostMapping("/save")
-//     public ResponseEntity AddUser( @RequestBody User1 user1) {
-
-//         System.out.println(i);
-//         if (i.equals(user1.para)) {
-
-//             if(userRepository1.existsByPara(user1.para))
-//             {
-                
-                
-//                 return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);}
-//             else {
-//                 userRepository1.save(user1);
-//                 return new ResponseEntity<>(HttpStatus.OK);
-//             }
-//         } else {
-//             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//         }
-//     }
-
     @GetMapping("/get-user-details")
     public Iterable<User1> take( @RequestParam String email) {
         return userRepository1.findByEmail(email);
@@ -185,21 +133,23 @@ rsp=0;
     public Iterable<User1> find() {
         return userRepository1.getByDate(LocalDate.now());
     }
-    
-    @PostMapping("/recent1")
-    public Iterable<User1> find1() {
-        return userRepository1.getByDate(LocalDate.now());
+
+    @GetMapping("/get-by-month")
+    public Iterable<User1> findByMonth(@RequestParam String month,String email) {
+        return userRepository1.getByMonthAndEmail(month,email);
     }
-    
-   @GetMapping("/delete-by-time")
-public String delete( @RequestParam String time) {
- userRepository1.deleteByTime(time);
-    return "deleted";
-}
-    
-//      @GetMapping("/get-by-month")
-//     public Iterable<User1> findByMonth(@RequestBody String month,String email) {
-//         return userRepository1.getByMonthAndEmail(month,email);
-//     }
+
+
+    @GetMapping("/delete-by-time")
+    public Iterable<User1> delete( @RequestParam String date) {
+        return userRepository1.deleteByDate(date);
+    }
+
+
+//       public ResponseEntity<?>waiter()
+//       {
+//           return ResponseEntity.status(HttpStatus.OK).location(URI.create("http://192.168.1.14:8080/")).build();
+//
+//       }
 
 }
