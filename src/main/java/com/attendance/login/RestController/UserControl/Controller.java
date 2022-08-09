@@ -215,6 +215,12 @@ public int rsp;
     public Iterable<User1> deleteuser( @RequestParam String name) {
         return userRepository1.deleteByName(name);
     }
+    
+    
+     @GetMapping("/time-now")
+    public LocalTime time( ) {
+        return LocalTime.now();
+    }
 
 
 //       public ResponseEntity<?>waiter()
